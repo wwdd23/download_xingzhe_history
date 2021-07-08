@@ -34,7 +34,9 @@
     https://chromedriver.chromium.org/downloads
 
 - 将driver 放入到 /usr/local/bin 
+
     解压后
+
     `$ cp chromedriver /usr/local/bin`
 
 
