@@ -3,3 +3,4 @@ list.txt.old
 cookies.txt
 *.gpx
 download/*
+.DS_Store
