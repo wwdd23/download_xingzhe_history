@@ -22,12 +22,13 @@ def write_url(year, month, user_id):
     request = Request( url, headers=headers)
     html = urlopen( request )
     data = html.read()
-    print(data)
+    #print(data)
     #strs = str(data)
     raw_json = json.loads(data)
-    print(raw_json)
+    #print(raw_json)
     #print(strs)
     
+    print("Get %s %s gpx:" % (year, month))
     
     for i in raw_json['data']['wo_info']:
         g_id = i['id']
@@ -41,9 +42,9 @@ def write_url(year, month, user_id):
             cookief.write(gpx_url)
             cookief.write('\n')
 
-def year_month():
+def year_month(start_year, end_year):
     date_list = []
-    years = range(2011, 2022)
+    years = range(start_year, end_year+1)
     months = range(1, 13)
     for y in years:
         for m in months:
@@ -58,17 +59,14 @@ def add_month():
     months = range(1, 13)
     for m in months:
         date_list.append([2021,m])
-
-
-
     return date_list
 
 
 
 if __name__ == '__main__':
-    y_m = year_month()
+    y_m = year_month(2018, 2022)
     #y_m = add_month()
-    user_id = xxxx 
+    user_id = 5064
     for i in y_m:
         write_url(i[0], i[1], user_id)
     

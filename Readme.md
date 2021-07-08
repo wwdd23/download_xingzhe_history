@@ -47,7 +47,19 @@
 ### 执行流程
 
 
+
+
+
 1. 使用 get_month_info 获取公共接口中每月的记录id并写入导出数据
+
+    ```
+    查找 user_id ,
+    具体获取方法,登陆web
+    在开发模式下查看 https://www.imxingzhe.com/api/v4/user_month_info 请求后的面的user_id 
+    ```
+
+    修改代码中 user_id = xxxx 为个人id信息
+    
 
     `$ python get_month_info.py`
 
@@ -59,9 +71,17 @@
 
 3. 下载历史记录
 
+    ```
+    打开 get_info.py  path 中添加需要保存文件的绝对路径 
+    例如:
+    path = '/Users/xxxx/github/xinzhe/download'
+    ```
+
     `$python get_info.py`
 
 4. 修改header 解决无法倒入到garmin connect 问题
+    
+    需要修改rootPath为上面path 相同的路径
 
     `$python modify_header.py`
 
